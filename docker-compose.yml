@@ -13,7 +13,6 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-
   app-school-backend:
     depends_on:
       - mysqldb
@@ -32,14 +31,13 @@ services:
     stdin_open: true
     tty: true
 
-app-school-frontend:
-  depends_on:
-    - app-school-backend
-  image: mouradhassini/student-front-image:1.0.0
-  restart: on-failure
-  ports:
-    -"8585:85"
-  
+  app-school-frontend:
+    depends_on:
+      - app-school-backend
+    image: mouradhassini/student-front-image:1.0.0
+    restart: on-failure
+    ports:
+      -"8585:85"
 
 volumes:
   db :
