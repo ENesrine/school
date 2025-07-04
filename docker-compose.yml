@@ -33,12 +33,13 @@ services:
     tty: true
 
 app-school-frontend:
-    image: mouradhassini/student-front-image:1.0.0
-    restart: on-failure
-    ports:
-      -"8585:85"
-    depends_on:
-      - app-school-backend
+  depends_on:
+    - app-school-backend
+  image: mouradhassini/student-front-image:1.0.0
+  restart: on-failure
+  ports:
+    -"8585:85"
+  
 
 volumes:
   db :
